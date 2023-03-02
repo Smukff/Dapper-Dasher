@@ -36,8 +36,8 @@ int main()
 {
     // array with window dimensions
     int windowDimensions[2];
-    windowDimensions[0] = 512;
-    windowDimensions[1] = 380;
+    windowDimensions[0] = 1280;
+    windowDimensions[1] = 720;
 
     // initialize the window
     InitWindow(windowDimensions[0], windowDimensions[1], "Dapper Dasher!");
@@ -121,28 +121,28 @@ int main()
         }
         // Scroll the midground
         fgX -= 80 * dT;
-        if (fgX <= -foreground.width*2)
+        if (fgX <= -foreground.width)
         {
             fgX = 0.0;
         }
 
         // draw the background
         Vector2 bg1Pos{bgX, 0.0};
-        DrawTextureEx(background, bg1Pos, 0.0, 2.0, WHITE);
-        Vector2 bg2Pos{bgX + background.width*2, 0.0};
-        DrawTextureEx(background, bg2Pos, 0.0, 2.0, WHITE);
+        DrawTextureEx(background, bg1Pos, 0.0, 1.0, WHITE);
+        Vector2 bg2Pos{bgX + background.width, 0.0};
+        DrawTextureEx(background, bg2Pos, 0.0, 1.0, WHITE);
 
         // draw the midground
         Vector2 mg1Pos{mgX, 0.0};
-        DrawTextureEx(midground, mg1Pos, 0.0, 2.0, WHITE);
-        Vector2 mg2Pos{mgX + midground.width*2, 0.0};
-        DrawTextureEx(midground, mg2Pos, 0.0, 2.0, WHITE);
+        DrawTextureEx(midground, mg1Pos, 0.0, 1.0, WHITE);
+        Vector2 mg2Pos{mgX + midground.width, 0.0};
+        DrawTextureEx(midground, mg2Pos, 0.0, 1.0, WHITE);
 
         // draw the foreground
         Vector2 fg1Pos{fgX, 0.0};
-        DrawTextureEx(foreground, fg1Pos, 0.0, 2.0, WHITE);
-        Vector2 fg2Pos{fgX + foreground.width*2, 0.0};
-        DrawTextureEx(foreground, fg2Pos, 0.0, 2.0, WHITE);
+        DrawTextureEx(foreground, fg1Pos, 0.0, 1.0, WHITE);
+        Vector2 fg2Pos{fgX + foreground.width, 0.0};
+        DrawTextureEx(foreground, fg2Pos, 0.0, 1.0, WHITE);
 
         // perform ground check
         if (isOnGround(scarfyData, windowDimensions[1]))
